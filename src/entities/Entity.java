@@ -16,10 +16,8 @@ import world.World;
 public class Entity {
 	
 
-	public static BufferedImage MACA_SPRITE = Game.spritesheet.getSprite(0, 16, 16, 16);
-	public static BufferedImage ENEMY1 = Game.spritesheet.getSprite(16, 16,16,16);
-	public static BufferedImage ENEMY2 = Game.spritesheet.getSprite(32, 16,16,16);
-	public static BufferedImage ENEMY_GHOST = Game.spritesheet.getSprite(48, 16, 16, 16);
+	public static BufferedImage PLAYER_RIGHT_SPRITE = Game.spritesheet.getSprite(32, 0, 16, 16);
+	public static BufferedImage PLAYER_LEFT_SPRITE = Game.spritesheet.getSprite(32, 16, 16, 16);
 	
 	protected double x;
 	protected double y;

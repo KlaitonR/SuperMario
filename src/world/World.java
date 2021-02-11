@@ -27,8 +27,11 @@ public class World {
 					tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16,yy*16,Tile.TILE_FLOOR);
 					if(pixelAtual == 0xFF000000) {
 						tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16,yy*16,Tile.TILE_FLOOR);
-					}else if(pixelAtual == 0xFFffffff) {
+					}else if(pixelAtual == 0xFFFFFFFF) {
 						tiles[xx + (yy * WIDTH)] = new WallTile(xx*16,yy*16,Tile.TILE_WALL);
+					}else if (pixelAtual == 0xFF0026FF) {
+						Game.player.setX(xx*16);
+						Game.player.setY(yy*16);
 					}
 				}
 			}
