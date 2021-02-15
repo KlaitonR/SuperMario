@@ -1,11 +1,8 @@
 package entities;
 
 import java.awt.Graphics;
-//import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-
 import main.Game;
-import world.Camera;
 import world.World;
 
 public class Player extends Entity{
@@ -90,8 +87,6 @@ public class Player extends Entity{
 			}
 		}
 		
-		Camera.x = Camera.clamp((int)x - Game.WIDTH/2, 0, World.WIDTH*16);
-		Camera.y = Camera.clamp((int)y - Game.HEIGHT/2, 0, World.HEIGHT*16);
 		updateCamera();
 	}
 	
