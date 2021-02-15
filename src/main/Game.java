@@ -92,13 +92,10 @@ public class Game extends Canvas implements Runnable,KeyListener,MouseListener,M
 	
 	public void tick(){
 		
-
 		for(int i = 0; i < entities.size(); i++) {
 			Entity e = entities.get(i);
 			e.tick();
 		}
-
-		
 	}
 	
 
@@ -166,10 +163,16 @@ public class Game extends Canvas implements Runnable,KeyListener,MouseListener,M
 		
 		if(e.getKeyCode() == KeyEvent.VK_D) {
 			player.right = true;
+			player.moved = true;
 		}
 		
 		if(e.getKeyCode() == KeyEvent.VK_A) {
 			player.left = true;
+			player.moved = true;
+		}
+		
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+			player.jump = true;
 		}
 		
 	}
@@ -179,12 +182,13 @@ public class Game extends Canvas implements Runnable,KeyListener,MouseListener,M
 		
 		if(e.getKeyCode() == KeyEvent.VK_D) {
 			player.right = false;
+			player.moved = false;
 		}
 		
 		if(e.getKeyCode() == KeyEvent.VK_A) {
 			player.left = false;
+			player.moved = false;
 		}
-		
 		
 	}
 
