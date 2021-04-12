@@ -10,6 +10,7 @@ public class Player extends Entity{
 	public boolean right, left;
 	private double gravity = 2;
 	public int dir = 1;
+	public static double life = 100; 
 	
 	public boolean isJumping;
 	public boolean jump = false;
@@ -42,6 +43,20 @@ public class Player extends Entity{
 		
 		if(World.isFree((int)x, (int)(y+gravity)) && !isJumping) {
 			y += gravity;
+			
+			for(int i=0; i<Game.entities.size(); i++) { 
+				Entity e = Game.entities.get(i);
+				if(e instanceof Enemy) {
+					if(Entity.isColidding(this, e)) {
+						isJumping = true;
+						jumpHeight = 32;
+						((Enemy) e).life--;
+					}else {
+						jump = false;
+					}
+				}
+			}
+			
 		}
 		
 		if(right && World.isFree((int)(x+speed), (int)y)) {
@@ -55,6 +70,7 @@ public class Player extends Entity{
 		}
 		
 		if(jump) {
+			jumpHeight = 64;
 			if(!World.isFree(getX(), getY()+1)) {
 				isJumping = true;
 			}else {
@@ -84,6 +100,16 @@ public class Player extends Entity{
 			maxSprites++;
 			if(maxSprites == 4) {
 				maxSprites = 0;
+			}
+		}
+		
+		for(int i=0; i<Game.entities.size(); i++) { 
+			Entity e = Game.entities.get(i);
+			if(e instanceof Enemy) {
+				if(Entity.isColidding(this, e)) {
+					if(Entity.rand.nextInt(100) < 20)
+						life--;
+				}
 			}
 		}
 		

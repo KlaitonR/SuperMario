@@ -18,6 +18,8 @@ public class Entity {
 
 	public static BufferedImage PLAYER_RIGHT_SPRITE = Game.spritesheet.getSprite(32, 0, 16, 16);
 	public static BufferedImage PLAYER_LEFT_SPRITE = Game.spritesheet.getSprite(32, 16, 16, 16);
+	public static BufferedImage ENEMY_RIGHT = Game.spritesheet.getSprite(96, 0, 16, 16);
+	public static BufferedImage ENEMY_LEFT = Game.spritesheet.getSprite(112, 0, 16, 16);
 	
 	protected double x;
 	protected double y;

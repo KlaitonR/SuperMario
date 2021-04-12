@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
+import entities.Enemy;
 import main.Game;
 
 public class World {
@@ -35,7 +37,9 @@ public class World {
 					}else if (pixelAtual == 0xFF0026FF) {
 						Game.player.setX(xx*16);
 						Game.player.setY(yy*16);
-					}
+					}else if (pixelAtual == 0xFFFF0000) {
+						Enemy en = new Enemy(xx*16, yy*16,16, 16, 1, Enemy.ENEMY_RIGHT);
+						Game.entities.add(en);					}
 				}
 			}
 		} catch (IOException e) {
